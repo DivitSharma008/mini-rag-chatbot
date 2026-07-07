@@ -6,12 +6,10 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_classic.chains import RetrievalQA
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_classic.prompts import PromptTemplate
-from dotenv import load_dotenv
 import tempfile
 import os
 
-load_dotenv(".env")
-print("DEBUG - key loaded:", os.getenv("API_SECRET_KEY"))
+
 st.set_page_config(page_title="Mini RAG Chatbot", page_icon="🤖")
 st.title("🤖 Mini RAG Chatbot")
 st.caption("Upload a PDF and ask questions about it")
@@ -84,7 +82,7 @@ if "vectorstore" in st.session_state:
     if question:
         llm = ChatGoogleGenerativeAI(
             model="gemini-2.5-flash",
-            google_api_key=os.getenv("API_SECRET_KEY"),
+            google_api_key=st.secrets["API_SECRET_KEY"],
             temperature=0,
         )
         retriever = st.session_state.vectorstore.as_retriever(search_kwargs={"k": 4})
