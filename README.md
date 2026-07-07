@@ -2,7 +2,6 @@
 
 A compact Retrieval-Augmented Generation (RAG) demo built with Streamlit and LangChain-style components. Upload a PDF and ask natural-language questions about its contents. The app indexes the PDF into vector embeddings (FAISS) and answers questions using a retrieval + LLM pipeline.
 
-GitHub Copilot Chat Assistant
 
 ---
 
@@ -123,18 +122,3 @@ Prompt used in `app.py`:
 - Indexing is slow or memory-heavy: reduce chunk count by increasing `chunk_size` or decreasing overlap in the splitter.
 
 ---
-
-## Next steps & suggestions
-
-- Persist indexes keyed by file hash to avoid re-indexing large documents.
-- Add authentication for any public deployment.
-- Add a minimal `requirements-min.txt` with only essential packages for quicker setup.
-- Add tests for ingestion and retrieval logic.
-
----
-
-If you want, I can also:
-- Create a Dockerfile to containerize the app
-- Add a minimal `requirements-min.txt`
-- Add a GitHub Actions workflow to build and run basic checks
-
