@@ -11,6 +11,7 @@ import tempfile
 import os
 
 load_dotenv(".env")
+print("DEBUG - key loaded:", os.getenv("API_SECRET_KEY"))
 st.set_page_config(page_title="Mini RAG Chatbot", page_icon="🤖")
 st.title("🤖 Mini RAG Chatbot")
 st.caption("Upload a PDF and ask questions about it")
@@ -83,7 +84,7 @@ if "vectorstore" in st.session_state:
     if question:
         llm = ChatGoogleGenerativeAI(
             model="gemini-2.5-flash",
-            google_api_key=os.getenv("GOOGLE_API_KEY"),
+            google_api_key=os.getenv("API_SECRET_KEY"),
             temperature=0,
         )
         retriever = st.session_state.vectorstore.as_retriever(search_kwargs={"k": 4})
