@@ -11,8 +11,8 @@ import tempfile
 import os
 
 load_dotenv(".env")
-st.set_page_config(page_title="Mini RAG Chatbot", page_icon="📄")
-st.title("📄 Mini RAG Chatbot")
+st.set_page_config(page_title="Mini RAG Chatbot", page_icon="🤖")
+st.title("🤖 Mini RAG Chatbot")
 st.caption("Upload a PDF and ask questions about it")
 
 PROMPT = PromptTemplate(
