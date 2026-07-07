@@ -83,7 +83,7 @@ if "vectorstore" in st.session_state:
     if question:
         llm = ChatGoogleGenerativeAI(
             model="gemini-2.5-flash",
-            google_api_key=os.getenv("API_SECRET_KEY"),
+            google_api_key=os.getenv("GOOGLE_API_KEY"),
             temperature=0,
         )
         retriever = st.session_state.vectorstore.as_retriever(search_kwargs={"k": 4})
