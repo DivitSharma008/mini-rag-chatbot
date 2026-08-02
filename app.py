@@ -11,7 +11,7 @@ import os
 
 st.set_page_config(page_title="Mini RAG Chatbot", page_icon="🤖")
 st.title("🤖 Mini RAG Chatbot")
-st.caption("Upload a PDF of file size upto 20MB and ask questions about it")
+st.caption("Upload a PDF of file size upto 10MB and ask questions about it")
 
 PROMPT = PromptTemplate(
     template="""Use the following context to answer the question.
@@ -25,7 +25,7 @@ Answer:""",
     input_variables=["context", "question"],
 )
 
-MAX_FILE_SIZE_MB = 20       #file size is changed from 10 to 20
+MAX_FILE_SIZE_MB = 10
 
 @st.cache_resource(show_spinner=False)
 def get_embeddings():
