@@ -11,7 +11,7 @@ import os
 
 st.set_page_config(page_title="Mini RAG Chatbot", page_icon="🤖")
 st.title("🤖 Mini RAG Chatbot")
-st.caption("Upload a PDF and ask questions about it")
+st.caption("Upload a PDF of file size upto 20MB and ask questions about it")
 
 PROMPT = PromptTemplate(
     template="""Use the following context to answer the question.
