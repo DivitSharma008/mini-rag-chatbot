@@ -25,7 +25,7 @@ Answer:""",
     input_variables=["context", "question"],
 )
 
-MAX_FILE_SIZE_MB = 10
+MAX_FILE_SIZE_MB = 20       #file size is changed from 10 to 20
 
 @st.cache_resource(show_spinner=False)
 def get_embeddings():
@@ -46,7 +46,7 @@ def build_index_from_pdf(uploaded_file):
         if len(docs) == 0:
             raise ValueError("No readable text found in this PDF.")
 
-        splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=150)
+        splitter = RecursiveCharacterTextSplitter(chunk_size=1500, chunk_overlap=250)   #chunk size changed to 1500 and overlap to 250
         chunks = splitter.split_documents(docs)
 
         embeddings = get_embeddings()
@@ -82,9 +82,9 @@ if "vectorstore" in st.session_state:
         llm = ChatGoogleGenerativeAI(
             model="gemini-2.5-flash",
             google_api_key=st.secrets["GOOGLE_API_KEY"],
-            temperature=0,
+            temperature=0.5,        #temp increased from 0 to 0.5
         )
-        retriever = st.session_state.vectorstore.as_retriever(search_kwargs={"k": 4})
+        retriever = st.session_state.vectorstore.as_retriever(search_kwargs={"k": 6})   #increased k to 6
         qa = RetrievalQA.from_chain_type(
             llm=llm,
             retriever=retriever,
