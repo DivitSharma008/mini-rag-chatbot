@@ -4,6 +4,7 @@ Ask questions about any PDF and get grounded, source-cited answers — powered b
 
 Upload a document, and the chatbot retrieves the most relevant passages and uses them (and only them) to answer your questions, showing exactly which chunks of the document it used.
 
+App Link: https://divitsharma008-mini-rag-chatbot-app-ydhaxp.streamlit.app/
 ---
 
 ## Features
