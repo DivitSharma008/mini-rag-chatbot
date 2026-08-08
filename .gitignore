@@ -4,4 +4,3 @@ __pycache__/
 faiss_index/
 data/*.pdf
 .streamlit/secrets.toml
-.streamlit/config.toml
